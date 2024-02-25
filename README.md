@@ -18,12 +18,43 @@ Este é um projeto desenvolvido pelos alunos da Faculdade Impacta, como parte de
 ## 🤝Como Contribuir
 Para contribuir com este projeto, siga os passos abaixo:
 
-- Faça um fork deste repositório para a sua conta do GitHub.
-- Clone o fork para o seu ambiente local.
+- Clone o repositório para o seu ambiente local (git clone <url do repositório>).
 - Crie uma branch para suas alterações (git checkout -b feature/nome-da-sua-feature).
 - Faça suas alterações e adicione commits descrevendo-as de forma clara.
 - Empurre suas alterações para o seu repositório no GitHub (git push origin feature/nome-da-sua-feature).
-- Abra um pull request para o repositório original.
+- Abra um pull request para a branch master.
+
+
+# 🏗️Dependências do Projeto
+Este projeto requer algumas dependências específicas para serem instaladas. Você pode instalá-las usando o gerenciador de pacotes pip. Certifique-se de que está em um ambiente virtual Python antes de instalar as dependências.
+Dependências Principais
+As seguintes são as dependências principais do projeto:
+
+-**Flask:** Um framework web leve para Python.
+```
+pip install Flask
+```
+
+**mvc_flask:** Um pacote para implementar o padrão MVC (Model-View-Controller) em aplicações Flask.
+```
+pip install mvc_flask
+```
+
+**Flask SQLAlchemy:** Um ORM (Object-Relational Mapping) para Flask que facilita a interação com bancos de dados SQL.
+```
+pip install Flask-SQLAlchemy
+```
+
+**Flask Migrate:** Uma extensão para Flask SQLAlchemy que facilita a migração de bancos de dados.
+```
+pip install Flask-Migrate
+```
+
+## Como rodar localmente
+- Apóes clonar o repositório, e instalar todas as dependências, inicializar o servidor flask pelo terminal
+```
+run flask
+```
   
 # 👥Equipe de Desenvolvimento
 Caique Camargo Moreno <br/>
