@@ -1,4 +1,4 @@
-# 🚗Controle de Manutenções Veiculares
+# 🚗AutoCare - Controle de Manutenções Veiculares
 Este é um projeto desenvolvido pelos alunos da Faculdade Impacta, como parte de um trabalho acadêmico para a matéria de Software Product: Analysis, Specification, Projec. O objetivo deste projeto é criar um sistema web para controle de manutenções veiculares, proporcionando uma maneira eficiente de gerenciar as atividades de manutenção de uma frota de veículos.
 
 ## 🛠️Funcionalidades
@@ -10,7 +10,7 @@ Este é um projeto desenvolvido pelos alunos da Faculdade Impacta, como parte de
 
 ## 🛠️Tecnologias Utilizadas
 **Frontend:** HTML5, CSS3, JavaScript (Framework a ser definido)<br/>
-**Backend:** Node.js, Express.js (ou outro framework a ser definido), banco de dados MySQL (ou outro banco de dados relacional)<br/>
+**Backend:** Python ( com uso das bibliotecas Flask, mvc_flask, Flask SQLAlchemy, Flask Migrate ), banco de dados MySQL<br/>
 **Autenticação e Autorização:** JSON Web Tokens (JWT) para autenticação de usuários e controle de acesso às funcionalidades do sistema.<br/>
 **Notificações:** Integração com serviços de envio de e-mails ou mensagens SMS para notificações automáticas.<br/>
 **Controle de Versão:** Git para controle de versão do código fonte, hospedado em um repositório remoto (por exemplo, GitHub).
@@ -18,7 +18,7 @@ Este é um projeto desenvolvido pelos alunos da Faculdade Impacta, como parte de
 ## 🤝Como Contribuir
 Para contribuir com este projeto, siga os passos abaixo:
 
-- Clone o repositório para o seu ambiente local (git clone <url do repositório>).
+- Clone o repositório para o seu ambiente local (git clone [<url do repositório>](https://github.com/Controle-de-Manutencoes-Veiculares/impacta-assistente_de_manutencao_veicular.git)]).
 - Crie uma branch para suas alterações (git checkout -b feature/nome-da-sua-feature).
 - Faça suas alterações e adicione commits descrevendo-as de forma clara.
 - Empurre suas alterações para o seu repositório no GitHub (git push origin feature/nome-da-sua-feature).
@@ -32,7 +32,7 @@ As seguintes são as dependências principais do projeto:
 
 -**Flask:** Um framework web leve para Python.
 ```
-pip install Flask
+pip install Flask==3.0.0
 ```
 
 **mvc_flask:** Um pacote para implementar o padrão MVC (Model-View-Controller) em aplicações Flask.
