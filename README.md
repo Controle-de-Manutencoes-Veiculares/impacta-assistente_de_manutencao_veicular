@@ -53,7 +53,7 @@ pip install Flask-Migrate
 ## Como rodar localmente
 - Apóes clonar o repositório, e instalar todas as dependências, inicializar o servidor flask pelo terminal
 ```
-run flask
+flask run --debug
 ```
   
 # 👥Equipe de Desenvolvimento
