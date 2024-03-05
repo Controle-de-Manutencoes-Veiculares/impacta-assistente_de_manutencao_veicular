@@ -7,5 +7,12 @@
 </head>
 <body>
     <h1>Home</h1>
+
+    {% for post in posts %}
+    <dl>
+        <dt>{{post.title}}</dt>
+        <dd>{{post.description}}</dd>
+    </dl>
+    {% endfor %}
 </body>
 </html>
