@@ -50,11 +50,31 @@ pip install Flask-SQLAlchemy
 pip install Flask-Migrate
 ```
 
+**Conectores mySQL - Python:** Libs que facilitam a integração com o DB mySQL.
+```
+pip install mysqlclient
+pip install mysql-connector-python
+```
+
+**Variáveis de ambiente** Você deve instalar a lib, criar um arquivo gitignore na raiz do projeto e realizar o commit<br>Após, criar o arquivo .env na raiz , adicionar as variáveis como no arquivo .env_example, salvar e commitar<br><br>Verificar se o arquivo .env não foi adicionado no reposi´torio remoto 
+```
+pip install python-dotenv
+```
+
 ## Como rodar localmente
-- Apóes clonar o repositório, e instalar todas as dependências, inicializar o servidor flask pelo terminal
+- Após clonar o repositório, e instalar todas as dependências, inicializar o servidor flask pelo terminal
 ```
 flask run --debug
 ```
+
+## Como rodar localmente o DB
+- Apóes instalar o mySQL, e adicionar as credenciais nas variáveis de ambiente, rodar os comandos: 
+```
+flask db init
+flask db migrate
+flask db upgrade
+```
+Se tudo ocorrer corretamente, deverá ser criado uma nova tabela no DB.
   
 # 👥Equipe de Desenvolvimento
 Caique Camargo Moreno <br/>
