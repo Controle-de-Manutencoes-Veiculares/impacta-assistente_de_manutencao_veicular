@@ -1,0 +1,18 @@
+{% extends 'layouts/layout.html' %}
+
+{% block content %}
+
+<h1>Página principal</h1>
+
+{% for post in posts %}
+<dl>
+    <dt>
+        <a href="{{ url_for('posts.show', id=post.id) }}">
+            {{ post.title }}
+        </a>
+    </dt>
+    <dd>{{ post.description }}</dd>
+</dl>
+{% endfor %}
+
+{% endblock %}
