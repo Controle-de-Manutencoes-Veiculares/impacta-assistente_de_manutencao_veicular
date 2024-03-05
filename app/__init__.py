@@ -11,7 +11,7 @@ def create_app():
     
     load_dotenv()
     app = Flask(__name__)
-    app.config['SQLALCHEMY_DATABASE_URI'] = "mysql://root:123456@localhost:3306/car_care"
+    app.config['SQLALCHEMY_DATABASE_URI'] = os.getenv('SQLALCHEMY_DATABASE_URI')
     
     FlaskMVC(app)
     db.init_app(app)
