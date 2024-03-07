@@ -9,7 +9,7 @@
     <div>
         <!-- icone carro ? -->
         <h2>Meus Carros</h2>
-        <button>Adicionar Carro</button>
+        <a class="btn btn-primary" href="{{url_for('carro.form_carro')}}">Adicionar Carro</a>
         <hr>
         <table class="table table-striped">
             <thead>
@@ -33,7 +33,7 @@
                     <td>{{ carro["km"] }}</td>
                     <td>
                         <form action="/reversal" method="post">
-                            <input name="id" type="hidden" value="{{ row[" id"] }}">
+                            <input name="id" type="hidden" value="{{ carr[" id"] }}">
                             <button class="btn btn-primary" type="submit">Reversal</button>
                         </form>
                     </td>
