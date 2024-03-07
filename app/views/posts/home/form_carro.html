@@ -1,0 +1,34 @@
+{% extends 'layouts/layout.html' %}
+
+{% block screentitle %} Formulario Carro {% endblock %}
+
+{% block content %}
+<form action="/add_car" method="post">
+
+  <div>
+    <div>
+      <label for="marca">Marca:</label>
+      <input autocomplete="off" name="marca" id="marca-carro" placeholder="VW, Ford..." type="text">
+    </div>
+    <div>
+      <label for="modelo">Modelo:</label>
+      <input autocomplete="off" name="modelo" id="modelo-carro" placeholder="Gol, Ecosport..." type="text">
+    </div>
+    <div>
+      <label for="apelido">Apelido:</label>
+      <input autocomplete="off" name="apelido" id="apelido-carro" placeholder="Lightning McQueen" type="text">
+    </div>
+    <div>
+      <label for="placa">Placa:</label>
+      <input autocomplete="off" name="placa" id="placa-carro" placeholder="XYZ-1234" type="text">
+    </div>
+    <div>
+      <label for="km">KM:</label>
+      <input autocomplete="off" name="km" id="km-carro" placeholder="316.000" type="number">
+    </div>
+    <button type="submit">Add</button>
+  </div>
+</form>
+
+
+{% endblock %}
