@@ -1,10 +1,10 @@
 from flask import render_template
-from app.models.post import Post
+#from app.models.post import Post
 class HomeController:
     def index(self):
-        posts = Post.query.all()
-        return render_template('posts/home/index.html', posts=posts)
-    
-    def show(self, name):
+#        posts = Post.query.all()
+        return render_template('posts/home/index.html')
+#    
+#    def show(self, name):
         
-        return f"olá {name} você está na home page"
+#        return f"olá {name} você está na home page"
