@@ -23,7 +23,7 @@
                 </tr>
             </thead>
             <tbody>
-                {% for carro in carros %}
+                {% for carro in veiculos %}
                 <tr>
                     <td>{{ carro["placa"] }}</td>
                     <td>{{ carro["cor"] }}</td>
@@ -33,7 +33,7 @@
                     <td>{{ carro["km"] }}</td>
                     <td>
                         <form action="/reversal" method="post">
-                            <input name="id" type="hidden" value="{{ carr[" id"] }}">
+                            <input name="id" type="hidden" value="{{ carro["id_veiculo"] }}">
                             <button class="btn btn-primary" type="submit">Reversal</button>
                         </form>
                     </td>
@@ -45,8 +45,8 @@
 
     <div>
         <!-- icone alerta ?-->
-        <h2>Alertas</h2>
-        <hr>
+        <!-- <h2>Alertas</h2>
+        <hr> -->
         <!-- fazer lista de alertas de manutenção
                 {for alerta in alertas}
                 {endfor} 
@@ -54,8 +54,8 @@
     </div>
         <div>
             <!-- icone config ?-->
-            <h2>Configurações</h2>
-            <hr>
+            <!-- <h2>Configurações</h2>
+            <hr> -->
             <!-- fazer menu de configuracoes -->
         </div>
 </section>
