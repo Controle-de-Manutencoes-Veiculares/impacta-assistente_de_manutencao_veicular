@@ -2,4 +2,7 @@ from mvc_flask import Router
 
 Router.get('/', 'home#index')
 
-Router.all('posts', only='show')
+Router.get('/form-carro', 'carro#form_carro')
+
+Router.post('/add-carro', 'carro#add_carro')
+
