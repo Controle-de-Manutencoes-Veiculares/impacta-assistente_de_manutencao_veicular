@@ -1,5 +1,5 @@
 from flask import Flask
-from flask import render_template, redirect, jsonify , request
+from flask import render_template, redirect, jsonify , request, flash
 from app.models.Carcare import Veiculo
 from app import db
 from app.controllers.home_controller import HomeController
@@ -29,11 +29,31 @@ class CarroController:
             # Commit das alterações para salvar o veículo no banco de dados
             db.session.commit()
 
-            # Redirecionamento para a rota index (ou qualquer outra rota que você deseje)
+            # Redirecionamento para a rota index (ou qualquer outra rota que você deseje) 
+            # return redirect('/')??
             return jsonify({'status': 'success', 'message': 'Veículo adicionado com sucesso'}), 200
+            
 
         except Exception as e:
             # Se ocorrer um erro, reverta as alterações
             db.session.rollback()
             return jsonify({'status': 'error', 'message': str(e)}), 500
+    
+    def delete_carro(self):
+        #recebe id_veiculo de item a ser excluido
+        id_veiculo = request.form.get("id_veiculo")
+        print(id_veiculo)
+        #acessa BD com filtro id_veiculo
 
+        #exclui veiculo
+          # Commit das alterações para salvar o veículo no banco de dados
+           # db.session.commit()    
+
+        # Redirecionamento para a rota index (ou qualquer outra rota que você deseje) 
+           # return redirect('/')??
+           # return jsonify({'status': 'success', 'message': 'Veículo adicionado com sucesso'}), 200
+
+
+        return id_veiculo
+
+    

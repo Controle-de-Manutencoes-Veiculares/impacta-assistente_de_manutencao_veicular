@@ -6,56 +6,66 @@
 <h1 class="titulo">Área do Cliente</h1>
 
 <section>
+
     <div>
         <!-- icone carro ? -->
         <h2>Meus Carros</h2>
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaladdcar" >Adicionar Carro</button>
-        <div class="modal fade" id="modaladdcar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAddCar">Adicionar
+            Carro</button>
+
+        <div class="modal fade" id="modalAddCar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-              <div class="modal-content">
-                <div class="modal-header">
-                  <h5 class="modal-title" id="labeladdcar">Novo Carro</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="labeladdcar">Novo Carro</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="alerta" class="alert" style="display:none;"></div>
+                        <form id="carroForm">
+                            <div class="mb-3">
+                                <label for="id_usuario" class="col-form-label">id_usuario:</label>
+                                <input type="text" class="form-control" name="id_usuario-carro" id="id_usuario-carro"
+                                    placeholder="3">
+                            </div>
+                            <div class="mb-3">
+                                <label for="cor" class="col-form-label">Cor:</label>
+                                <input type="text" class="form-control" name="cor" id="cor-carro" placeholder="Azul">
+                            </div>
+                            <div class="mb-3">
+                                <label for="placa" class="col-form-label">Placa:</label>
+                                <input type="text" class="form-control" name="placa" id="placa-carro"
+                                    placeholder="XYZ-1234">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Marca" class="col-form-label">Marca:</label>
+                                <input type="text" class="form-control" name="marca" id="marca-carro"
+                                    placeholder="VW, Ford...">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Modelo" class="col-form-label">Modelo:</label>
+                                <input type="text" class="form-control" name="modelo" id="modelo-carro"
+                                    placeholder="Gol...">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Ano" class="col-form-label">Ano:</label>
+                                <input type="number" class="form-control" name="ano" id="ano-carro" placeholder="1991">
+                            </div>
+                            <div class="mb-3">
+                                <label for="Km" class="col-form-label">Km:</label>
+                                <input type="number" class="form-control" name="km" id="km-carro" placeholder="316.000">
+                            </div>
+                        </form>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                        <button type="submit" class="btn btn-primary" onclick="enviarFormulario()">Adicionar
+                            Carro</button>
+                    </div>
                 </div>
-                <div class="modal-body">
-                  <form action="/add_carro" method="post">
-                    <div class="mb-3">
-                      <label for="apelido" class="col-form-label">Apelido:</label>
-                      <input type="text" class="form-control" id="apelido-carro" placeholder="Lightning McQueen">
-                    </div>
-                    <div class="mb-3">
-                        <label for="cor" class="col-form-label">Cor:</label>
-                        <input type="text" class="form-control" id="cor-carro" placeholder="Azul">
-                    </div>
-                    <div class="mb-3">
-                        <label for="placa" class="col-form-label">Placa:</label>
-                        <input type="text" class="form-control" id="placa-carro" placeholder="XYZ-1234">
-                    </div>
-                    <div class="mb-3">
-                        <label for="Marca" class="col-form-label">Marca:</label>
-                        <input type="text" class="form-control" id="marca-carro" placeholder="VW, Ford...">
-                    </div>
-                    <div class="mb-3">
-                        <label for="Modelo" class="col-form-label">Modelo:</label>
-                        <input type="text" class="form-control" id="modelo-carro" placeholder="Gol, Ecosport...">
-                    </div>
-                    <div class="mb-3">
-                        <label for="Ano" class="col-form-label">Ano:</label>
-                        <input type="number" class="form-control" id="ano-carro" placeholder="1991">
-                    </div>
-                    <div class="mb-3">
-                        <label for="Km" class="col-form-label">Km:</label>
-                        <input type="number" class="form-control" id="km-carro" placeholder="316.000">
-                    </div>
-                  </form>
-                </div>
-                <div class="modal-footer">
-                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                  <button type="submit" class="btn btn-primary">Adicionar Carro</button>
-                </div>
-              </div>
             </div>
-          </div>
+        </div>
         <hr>
         <table class="table table-striped">
             <thead>
@@ -78,9 +88,9 @@
                     <td>{{ carro["ano"] }}</td>
                     <td>{{ carro["km"] }}</td>
                     <td>
-                        <form action="/reversal" method="post">
-                            <input name="id" type="hidden" value="{{ carro["id_veiculo"] }}">
-                            <button class="btn btn-primary" type="submit">Reversal</button>
+                        <form action="/delete-carro" method="post">
+                            <input name="id_veiculo" type="hidden" value="{{ carro[" id_veiculo"] }}">
+                            <button class="btn btn-primary" type="submit">Delete</button>
                         </form>
                     </td>
                 </tr>
@@ -98,11 +108,57 @@
                 {endfor} 
         -->
     </div>
-        <div>
-            <!-- icone config ?-->
-            <!-- <h2>Configurações</h2>
+    <div>
+        <!-- icone config ?-->
+        <!-- <h2>Configurações</h2>
             <hr> -->
-            <!-- fazer menu de configuracoes -->
-        </div>
+        <!-- fazer menu de configuracoes -->
+    </div>
+
+    <!-- Alerta do Bootstrap -->
+
 </section>
+
+<script>
+    function enviarFormulario() {
+        var formulario = document.getElementById(id = "carroForm");
+        var formData = new FormData(formulario);
+        var objeto = {};
+        formData.forEach(function (value, key) {
+            objeto[key] = value;
+        });
+        var json = JSON.stringify(objeto);
+        // Agora você pode enviar o JSON usando fetch() ou outra biblioteca de sua escolha
+        fetch('/add-carro', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: json
+        }).then(response => {
+            if (response.ok) {
+                // Se a resposta for bem-sucedida (Status Code: 200), mostra o alerta de sucesso
+                document.getElementById("alerta").innerHTML = '<div class="alert alert-success" role="alert">Veículo adicionado com sucesso!</div>';
+                document.getElementById("alerta").style.display = 'block';
+
+                // Aguarda 5 segundos antes de redirecionar para /
+                setTimeout(function () {
+                    window.location.href = "/";
+                }, 1000);
+                fetch('/', {
+                    method: 'GET',
+                });
+            } else {
+                // Se a resposta não for bem-sucedida, mostra um alerta de erro
+                document.getElementById("alerta").innerHTML = '<div class="alert alert-danger" role="alert">Ocorreu um erro ao adicionar o veículo.</div>';
+                document.getElementById("alerta").style.display = 'block';
+            }
+        }).catch(error => {
+            // Se houver erro na requisição, mostra um alerta de erro
+            document.getElementById("alerta").innerHTML = '<div class="alert alert-danger" role="alert">Ocorreu um erro ao adicionar o veículo.</div>';
+            document.getElementById("alerta").style.display = 'block';
+            console.error('Erro ao adicionar veículo:', error);
+        });
+    }
+</script>
 {% endblock %}
