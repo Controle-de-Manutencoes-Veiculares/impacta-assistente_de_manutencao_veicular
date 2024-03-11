@@ -1,0 +1,2 @@
+# Development settings
+#SQLALCHEMY_DATABASE_URI= mysql://usuárioDb:senhaDb@IpDb:portDb/car_care
