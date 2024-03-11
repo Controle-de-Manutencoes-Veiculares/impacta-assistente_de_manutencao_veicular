@@ -1,0 +1,11 @@
+INSERT INTO car_care.Cliente (email, sexo, nome, cpf, nascimento, contato) VALUES 
+('cliente1@example.com', 'Masculino', 'João Silva', '12345678901', '1990-05-15', 5551234567),
+('cliente2@example.com', 'Feminino', 'Maria Souza', '98765432109', '1985-10-20', 5559876543);
+SELECT * FROM car_care.Cliente ;
+
+INSERT INTO car_care.Veiculo (id_cliente, cor, placa, marca, km, ano, modelo) VALUES 
+(1, 'Preto', 'ABC1234', 'Toyota', 50000, 2018, 'Corolla'),
+(1, 'Prata', 'DEF5678', 'Honda', 40000, 2019, 'Civic'),
+(2, 'Azul', 'GHI9012', 'Ford', 60000, 2017, 'Fiesta'),
+(2, 'Branco', 'JKL3456', 'Chevrolet', 35000, 2020, 'Onix');
+SELECT * FROM car_care.Veiculo ;

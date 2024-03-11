@@ -19,7 +19,8 @@ class Veiculo(db.Model):
     ano = db.Column(db.Numeric)
     modelo = db.Column(db.String(100))
 
-    def __init__(self, cor, placa, marca, km, ano, modelo):
+    def __init__(self, id_cliente, cor, placa, marca, km, ano, modelo):
+        self.id_cliente = id_cliente
         self.cor = cor
         self.placa = placa
         self.marca = marca
