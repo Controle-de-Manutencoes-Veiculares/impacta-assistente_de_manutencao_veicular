@@ -1,15 +1,61 @@
 {% extends 'layouts/layout.html' %}
 
-{% block title %}: Principal{% endblock %}
+{% block title %} Principal{% endblock %}
 
 {% block content %}
-<h1 class="titulo">Página principal</h1>
+<h1 class="titulo">Área do Cliente</h1>
 
 <section>
     <div>
         <!-- icone carro ? -->
         <h2>Meus Carros</h2>
-        <a class="btn btn-primary" href="{{url_for('carro.form_carro')}}">Adicionar Carro</a>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modaladdcar" >Adicionar Carro</button>
+        <div class="modal fade" id="modaladdcar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="labeladdcar">Novo Carro</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                  <form action="/add_carro" method="post">
+                    <div class="mb-3">
+                      <label for="apelido" class="col-form-label">Apelido:</label>
+                      <input type="text" class="form-control" id="apelido-carro" placeholder="Lightning McQueen">
+                    </div>
+                    <div class="mb-3">
+                        <label for="cor" class="col-form-label">Cor:</label>
+                        <input type="text" class="form-control" id="cor-carro" placeholder="Azul">
+                    </div>
+                    <div class="mb-3">
+                        <label for="placa" class="col-form-label">Placa:</label>
+                        <input type="text" class="form-control" id="placa-carro" placeholder="XYZ-1234">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Marca" class="col-form-label">Marca:</label>
+                        <input type="text" class="form-control" id="marca-carro" placeholder="VW, Ford...">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Modelo" class="col-form-label">Modelo:</label>
+                        <input type="text" class="form-control" id="modelo-carro" placeholder="Gol, Ecosport...">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Ano" class="col-form-label">Ano:</label>
+                        <input type="number" class="form-control" id="ano-carro" placeholder="1991">
+                    </div>
+                    <div class="mb-3">
+                        <label for="Km" class="col-form-label">Km:</label>
+                        <input type="number" class="form-control" id="km-carro" placeholder="316.000">
+                    </div>
+                  </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+                  <button type="submit" class="btn btn-primary">Adicionar Carro</button>
+                </div>
+              </div>
+            </div>
+          </div>
         <hr>
         <table class="table table-striped">
             <thead>
