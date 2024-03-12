@@ -82,4 +82,34 @@ class VeiculoController:
             db.session.rollback()
             return jsonify({'status': 'error', 'message': str(e)}), 500
 
-    
+    def update(self, id):
+        try:
+            # Encontra o veículo pelo ID
+            carro = Veiculo.query.get(id)
+            
+            if carro:
+                # coleta dados para atualizacao
+                data = request.json  # Recebe os dados enviados no corpo da solicitação como JSON
+                
+                carro.cor = data.get("cor")
+                carro.placa = data.get("placa")
+                carro.marca = data.get("marca")
+                carro.km = data.get("km")
+                carro.ano = data.get("ano")
+                carro.modelo = data.get("modelo")
+            
+                # Atualiza o veículo à sessão do banco de dados
+                db.session.add(carro)
+                
+                # Commit das alterações para atualizar o veículo do banco de dados
+                db.session.commit()
+
+                return jsonify({'status': 'success', 'message': 'Veículo atualizado com sucesso'}), 200
+          
+            else:
+                return jsonify({'status': 'error', 'message': 'Veículo não atualizado'}), 404
+
+        except Exception as e:
+            # Se ocorrer um erro, reverta as alterações
+            db.session.rollback()
+            return jsonify({'status': 'error', 'message': str(e)}), 500
