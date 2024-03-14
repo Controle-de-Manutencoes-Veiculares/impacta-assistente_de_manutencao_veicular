@@ -17,6 +17,10 @@ def create_app():
     db.init_app(app)
     Migrate(app, db)
 
+<<<<<<< HEAD
     from app.models.Carcare import Cliente, Veiculo, Pecas, VeiculoPecas
+=======
+    
+>>>>>>> 285b85c57297e0a2f01fac112c96db4274890252
     return app
 
