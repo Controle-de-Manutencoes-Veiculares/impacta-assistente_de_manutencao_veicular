@@ -26,9 +26,6 @@ class Veiculo(db.Model):
         self.marca = marca
         self.km = km
         self.ano = ano
-<<<<<<< HEAD
-        self.modelo = modelo    	
-=======
         self.modelo = modelo    
 
     def serialize(self):
@@ -42,7 +39,6 @@ class Veiculo(db.Model):
             'ano': self.ano,
             'modelo': self.modelo
         }	
->>>>>>> 285b85c57297e0a2f01fac112c96db4274890252
 
 class Pecas(db.Model):
     id_peca = db.Column(db.Integer, primary_key=True, autoincrement=True) #incluso autoincremento
