@@ -34,7 +34,7 @@ class VeiculoController:
     def create(self): 
         try:
             data = request.json  # Recebe os dados enviados no corpo da solicitação como JSON
-            id_usuario = data.get("id_usuario")
+            id_cliente = data.get("id_cliente")
             cor = data.get("cor")
             placa = data.get("placa")
             marca = data.get("marca")
@@ -43,7 +43,7 @@ class VeiculoController:
             modelo = data.get("modelo")
             
             # Criação de uma instância do modelo Veiculo
-            carro = Veiculo(id_cliente=id_usuario, cor=cor, placa=placa, marca=marca, km=km, ano=ano, modelo=modelo)
+            carro = Veiculo(id_cliente=id_cliente, cor=cor, placa=placa, marca=marca, km=km, ano=ano, modelo=modelo)
             
             # Adiciona o veículo à sessão do banco de dados
             db.session.add(carro)
