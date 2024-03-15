@@ -99,44 +99,44 @@
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                   </div>
                   <div class="modal-body">
-                    <form id="carroForm">
+                    <form id="carroFormEdit">
                       <!-- {{ method('PUT') }} -->
                       <div class="mb-3">
                         <label for="id_usuario" class="col-form-label">id_usuario:</label>
-                        <input type="text" class="form-control" name="id_usuario-carro" id="id_usuario-carro"
+                        <input type="text" class="form-control" name="id_usuario-carro" id="id_cliente-carro-edit"
                           value="{{ carro.id_veiculo }}"  readonly>
                       </div>
                       <div class="mb-3">
                         <label for="cor" class="col-form-label">Cor:</label>
-                        <input type="text" class="form-control" name="cor" id="cor-carro" value="{{ carro.cor }}">
+                        <input type="text" class="form-control" name="cor" id="cor-carro-edit" value="{{ carro.cor }}">
                       </div>
                       <div class="mb-3">
                         <label for="placa" class="col-form-label">Placa:</label>
-                        <input type="text" class="form-control" name="placa" id="placa-carro" value="{{ carro.placa }}">
+                        <input type="text" class="form-control" name="placa" id="placa-carro-edit" value="{{ carro.placa }}">
                       </div>
                       <div class="mb-3">
                         <label for="Marca" class="col-form-label">Marca:</label>
-                        <input type="text" class="form-control" name="marca" id="marca-carro" value="{{ carro.marca }}">
+                        <input type="text" class="form-control" name="marca" id="marca-carro-edit" value="{{ carro.marca }}">
                       </div>
                       <div class="mb-3">
                         <label for="Modelo" class="col-form-label">Modelo:</label>
-                        <input type="text" class="form-control" name="modelo" id="modelo-carro"
+                        <input type="text" class="form-control" name="modelo" id="modelo-carro-edit"
                           value="{{ carro.modelo }}">
                       </div>
                       <div class="mb-3">
                         <label for="Ano" class="col-form-label">Ano:</label>
-                        <input type="number" class="form-control" name="ano" id="ano-carro" value="{{ carro.ano }}">
+                        <input type="number" class="form-control" name="ano" id="ano-carro-edit" value="{{ carro.ano }}">
                       </div>
                       <div class="mb-3">
                         <label for="Km" class="col-form-label">Km:</label>
-                        <input type="number" class="form-control" name="km" id="km-carro" value="{{ carro.km }}">
+                        <input type="number" class="form-control" name="km" id="km-carro-edit" value="{{ carro.km }}">
                       </div>
                     </form>
 
                   </div>
                   <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary editar-carro-btn" data-id="{{ carro.id_veiculo }}">Atualizar
+                    <button type="submit" class="btn btn-primary atualizar-carro-btn" data-id="{{ carro.id_veiculo }}">Atualizar
                       Carro</button>
                   </div>
                 </div>
@@ -271,9 +271,66 @@
     });
   });
 
+  
+  // Adiciona evento de atualizar value dos inputs
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.edit-carro-btn').forEach(item => {
+      item.addEventListener('click', function (event) {
+        const id_veiculo = this.getAttribute('data-id');
+        const botao = document.querySelector('.atualizar-carro-btn');
+        botao.setAttribute('data-id', id_veiculo);
+        getCar(id_veiculo)        
+      });
+    });
+  });
+
+  function getCar(id_veiculo) {
+
+    fetch(`/veiculo/${id_veiculo}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    .then(response => {
+      if (response.ok) {
+        return response.json(); // Retorna os dados do carro como JSON
+      } else {
+        throw new Error('Falha ao obter os dados do carro');
+      }
+    })
+    .then(data => {
+      console.log(data.content); 
+      const carroData = data.content; // Considerando que o objeto retornado já contém os dados do carro
+      // Percorre o JSON e define o valor de cada campo de entrada correspondente
+      Object.keys(carroData).forEach(key => {
+        let value = carroData[key];
+        let id_name = `${key}-carro-edit`;
+        const inputField = document.getElementById(id_name);
+        if (inputField) {
+          inputField.value = value;
+        }
+      });
+    })
+    .catch(error => {
+      alert(error.message);
+    });
+  }
+
+
+  // Adiciona evento de clique nos botões datualizar o veiculo
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.atualizar-carro-btn').forEach(item => {
+      item.addEventListener('click', function (event) {
+        const id_veiculo = this.getAttribute('data-id');
+        updateCarro(id_veiculo)       
+      });
+    });
+  });
+
   // Função para editar item
   function updateCarro(id_veiculo){
-    var formulario = document.getElementById((id = "carroForm"));
+    var formulario = document.getElementById((id = "carroFormEdit"));
     var formData = new FormData(formulario);
     var objeto = {};
     
@@ -302,16 +359,6 @@
         alert(error.message);
       });
   }
-
-  // Adiciona evento de clique nos botões de editar
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.editar-carro-btn').forEach(item => {
-      item.addEventListener('click', function (event) {
-        const id_veiculo = this.getAttribute('data-id');
-        updateCarro(id_veiculo);
-      });
-    });
-  });
 
 
 
