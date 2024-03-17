@@ -28,10 +28,10 @@
 
 <body>
 
-<nav class="navbar" role="navigation" aria-label="main navigation">
+<nav class="navbar navbar" role="navigation" aria-label="main navigation" id="nav-style">
   <div class="navbar-brand">
     <a class="navbar-item" href="#">
-      <img src="/static/images/logonav.png" width="112" height="28">
+      <img src="/static/icons/logo-carcare-preto.png" width="140" height="30">
     </a>
     <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
       <span aria-hidden="true"></span>
@@ -75,11 +75,11 @@
     <div class="navbar-end">
       <div class="navbar-item">
         <div class="buttons">
-          <a class="button is-info is-rounded">
+          <a class="button is-hovered is-rounded" style="background-color: #ffae00; color: black;">
             <strong>Cadastrar-se</strong>
           </a>
-          <a class="button is-info is-light is-rounded">
-            Login
+          <a class="button is-hovered is-rounded" style="color: black;">
+            <strong>Login</strong>
           </a>
         </div>
       </div>
@@ -93,9 +93,9 @@
     {% endblock %}
 </content>
 
-<footer class="footer">
-  <div class="content has-text-centered">
-    <p><strong>Carcare</strong> é uma plataforma open source criada por alunos da <a href="https://www.impacta.edu.br/">Faculdade Impacta</a>.</p>
+<footer class="footer" id="footer-style">
+  <div class="content has-text-centered ">
+    <p><strong style="color: #3232CD;">Carcare</strong> é uma plataforma open source criada por alunos da <a href="https://www.impacta.edu.br/">Faculdade Impacta</a>.</p>
   </div>
 </footer>
 

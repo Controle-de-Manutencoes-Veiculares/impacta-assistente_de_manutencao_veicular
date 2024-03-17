@@ -1,8 +1,8 @@
 {% extends 'layouts/layout.html' %}
 {% block title %} Principal{% endblock %}
 {% block content %}
-<div class=" container is-widescreen has-text-centered">
-  <h1 class="title is-4">Área do Cliente</h1>
+<div class=" container is-widescreen has-text-centered"> <br> <!--QUEBRA DE LINHA DO TÍTULO-->
+  <h1 class="title is-3 has-text-weight-bold">Bem-Vindo a Área do Cliente</h1>
 </div>
 
 <section class="section">
@@ -20,9 +20,9 @@
         <h2 class="title is-5">Meus Carros</h2>
       </div>
       <div class="column">
-        <button type="button" class="js-modal-trigger button is-info is-rounded" data-target="modalAddCar"
-          data-bs-toggle="modal" data-bs-target="#modalAddCar">
-          Adicionar Carro
+        <button type="button" class="js-modal-trigger button is-rounded" data-target="modalAddCar"
+          data-bs-toggle="modal" data-bs-target="#modalAddCar" id="button-add-carro">
+          <strong>Adicionar Carro</strong>
         </button>
       </div>
     </div>
@@ -83,9 +83,9 @@
           </form>
         </section>
         <footer class="modal-card-foot">
-          <button type="button" class="button is-rounded is-link is-light" data-bs-dismiss="modal">Cancelar</button>
-          <button type="submit" class="button is-rounded is-link" onclick="enviarFormulario()">Adicionar
-            Carro</button>
+          <button type="button" class="button is-rounded is-light" data-bs-dismiss="modal" style="color: black;box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );">Cancelar</button>
+          <button type="submit" class="button is-warning is-rounded"onclick="enviarFormulario()" style="color: black;">
+           <strong>Adicionar Carro</strong></button>
         </footer>
       </div>
     </div>
@@ -94,7 +94,7 @@
     <div class="container is-offset-one-quarter">
 
       <table class="table container is-offset-one-quarter">
-        <thead>
+        <thead id="thead-style">
           <tr>
             <th scope="col">Placa</th>
             <th scope="col">Cor</th>
@@ -117,7 +117,9 @@
             <td>
               <!-- Botão de edição -->
               <button class="js-modal-trigger button is-rounded is-info is-small edit-carro-btn" data-target="modalEditCar"
-                data-id="{{ carro.id_veiculo }}" data-bs-toggle="modal" data-bs-target="#modalEditCar">Editar</button>
+                data-id="{{ carro.id_veiculo }}" data-bs-toggle="modal" data-bs-target="#modalEditCar">
+                  <img src="/static/icons/icon-editar-branco.png" width="17" height="6"> &nbsp;
+                 Editar </button>
               <!-- modal Edit Car -->
               <div class="modal fade" id="modalEditCar" tabindex="-1" aria-labelledby="exampleModalLabel"
                 aria-hidden="true">
@@ -178,7 +180,9 @@
                 </div>
               </div>
               <!-- Botão de exclusão -->
-              <button class="button is-danger is-rounded is-small delete-carro-btn" data-id="{{ carro.id_veiculo }}">Excluir</button>
+              <button class="button is-danger is-rounded is-small delete-carro-btn" data-id="{{ carro.id_veiculo }}">
+                  <img src="/static/icons/icon-x-branco.png" width="13" height="4"> &nbsp;
+                 Excluir</button>
             </td>
           </tr>
           {% endfor %}
