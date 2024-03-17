@@ -1,9 +1,12 @@
 .titulo {
   text-align: center;
-  color: black;
-  
+  color: gray;
 }
 
 #home {
   color: brown;
+}
+
+.subtitulo{
+  color: gray;
 }
