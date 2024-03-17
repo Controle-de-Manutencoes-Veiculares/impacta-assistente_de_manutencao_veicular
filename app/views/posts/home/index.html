@@ -116,7 +116,7 @@
             <td>{{ carro["km"] }}</td>
             <td>
               <!-- Botão de edição -->
-              <button class="js-modal-trigger button is-rounded is-info edit-carro-btn" data-target="modalEditCar"
+              <button class="js-modal-trigger button is-rounded is-info is-small edit-carro-btn" data-target="modalEditCar"
                 data-id="{{ carro.id_veiculo }}" data-bs-toggle="modal" data-bs-target="#modalEditCar">Editar</button>
               <!-- modal Edit Car -->
               <div class="modal fade" id="modalEditCar" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -178,7 +178,7 @@
                 </div>
               </div>
               <!-- Botão de exclusão -->
-              <button class="button is-danger is-rounded delete-carro-btn" data-id="{{ carro.id_veiculo }}">Excluir</button>
+              <button class="button is-danger is-rounded is-small delete-carro-btn" data-id="{{ carro.id_veiculo }}">Excluir</button>
             </td>
           </tr>
           {% endfor %}
