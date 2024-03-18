@@ -13,11 +13,13 @@
 
       <div class="column is-two-thirds">
         <!-- icone carro ? -->
-        <h2 class="title is-4"><img src="static/images/car2.png" width="28" height="7" style="vertical-align: middle">&nbsp;Meus Carros</h2>
+        <h2 class="title is-4"><img src="static/images/car2.png" width="28" height="7"
+            style="vertical-align: middle">&nbsp;Meus Carros</h2>
       </div>
       <div class="column">
         <button type="button" class="js-modal-trigger button is-rounded is-info" data-target="modalAddCar"
-          data-bs-toggle="modal" data-bs-target="#modalAddCar" id="button-add-carro"><img src="/static/images/add.png" width="20" height="7">
+          data-bs-toggle="modal" data-bs-target="#modalAddCar" id="button-add-carro"><img src="/static/images/add.png"
+            width="20" height="7">
           &nbsp;&nbsp;<strong>Adicionar Carro</strong>
         </button>
       </div>
@@ -37,7 +39,8 @@
             <div class="field" hidden>
               <label for="id_usuario" class="label">id_usuario:</label>
               <div class="control">
-                <input type="text" class="input" name="id_usuario-carro" id="id_usuario-carro" placeholder="3" value="1" disabled>
+                <input type="text" class="input is-rounded" name="id_usuario-carro" id="id_usuario-carro"
+                  placeholder="3" value="1" disabled>
               </div>
             </div>
             <div class="field">
@@ -79,9 +82,10 @@
           </form>
         </section>
         <footer class="modal-card-foot">
-          <button type="button" class="button is-rounded is-light" data-bs-dismiss="modal" style="color: black;box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );">Cancelar</button>
-          <button type="submit" class="button is-warning is-rounded"onclick="enviarFormulario()" style="color: black;">
-           <strong>Adicionar Carro</strong></button>
+          <button type="button" class="button is-rounded is-light" data-bs-dismiss="modal"
+            style="color: black;box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );">Cancelar</button>
+          <button type="submit" class="button is-warning is-rounded" onclick="enviarFormulario()" style="color: black;">
+            <strong>Adicionar Carro</strong></button>
         </footer>
       </div>
     </div>
@@ -89,7 +93,7 @@
     <hr />
     <div class="container is-offset-one-quarter">
 
-      <table class="table container is-offset-one-quarter">
+      <table class="table is-hoverable  container is-offset-one-quarter">
         <thead id="thead-style">
           <tr>
             <th scope="col">Placa</th>
@@ -112,73 +116,87 @@
             <td>{{ carro["km"] }}</td>
             <td>
               <!-- Botão de edição -->
-              <button class="js-modal-trigger button is-rounded is-info is-small edit-carro-btn" data-target="modalEditCar"
-                data-id="{{ carro.id_veiculo }}" data-bs-toggle="modal" data-bs-target="#modalEditCar">
-                  <img src="/static/icons/icon-editar-branco.png" width="17" height="6"> &nbsp;
-                 Editar </button>
+              <button class="js-modal-trigger button is-rounded is-info is-small edit-carro-btn"
+                data-target="modalEditCar" data-id="{{ carro.id_veiculo }}" data-bs-toggle="modal"
+                data-bs-target="#modalEditCar">
+                <img src="/static/icons/icon-editar-branco.png" width="17" height="6"> &nbsp;
+                Editar </button>
               <!-- modal Edit Car -->
-              <div class="modal fade" id="modalEditCar" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
+              <div class="modal" id="modalEditCar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                 <!-- Conteúdo da modal aqui -->
-                <div class="modal-dialog">
-                  <div class="modal-content">
-                    <div class="modal-header">
-                      <h5 class="modal-title" id="labeladdcar">Editar Carro</h5>
-                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                      <form id="carroFormEdit">
-                        <!-- {{ method('PUT') }} -->
-                        <div class="mb-3">
-                          <label for="id_usuario" class="col-form-label">id_usuario:</label>
-                          <input type="text" class="form-control" name="id_usuario-carro" id="id_cliente-carro-edit"
-                            value="{{ carro.id_veiculo }}" readonly>
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                  <header class="modal-card-head">
+                    <p class="modal-card-title" id="labeladdcar">Editar Carro</p>
+                    <button type="button" class="delete btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </header>
+                  <section class="modal-card-body">
+                    <form id="carroFormEdit">
+                      <div class="field" hidden>
+                        <label for="id_usuario" class="label">id_usuario:</label>
+                        <div class="control">
+                          <input type="text" class="input  is-rounded" name="id_usuario-carro"
+                            id="id_cliente-carro-edit" value="{{ carro.id_veiculo }}" readonly>
                         </div>
-                        <div class="mb-3">
-                          <label for="cor" class="col-form-label">Cor:</label>
-                          <input type="text" class="form-control" name="cor" id="cor-carro-edit"
+                      </div>
+                      <div class="field">
+                        <label for="cor" class="label">Cor:</label>
+                        <div class="control">
+                          <input type="text" class="input is-rounded" name="cor" id="cor-carro-edit"
                             value="{{ carro.cor }}">
                         </div>
-                        <div class="mb-3">
-                          <label for="placa" class="col-form-label">Placa:</label>
-                          <input type="text" class="form-control" name="placa" id="placa-carro-edit"
+                      </div>
+                      <div class="field">
+                        <label for="placa" class="label">Placa:</label>
+                        <div class="control">
+                          <input type="text" class="input is-rounded" name="placa" id="placa-carro-edit"
                             value="{{ carro.placa }}">
                         </div>
-                        <div class="mb-3">
-                          <label for="Marca" class="col-form-label">Marca:</label>
-                          <input type="text" class="form-control" name="marca" id="marca-carro-edit"
+                      </div>
+                      <div class="field">
+                        <label for="Marca" class="label">Marca:</label>
+                        <div class="control">
+                          <input type="text" class="input is-rounded" name="marca" id="marca-carro-edit"
                             value="{{ carro.marca }}">
                         </div>
-                        <div class="mb-3">
-                          <label for="Modelo" class="col-form-label">Modelo:</label>
-                          <input type="text" class="form-control" name="modelo" id="modelo-carro-edit"
+                      </div>
+                      <div class="field">
+                        <label for="Modelo" class="label">Modelo:</label>
+                        <div class="control">
+                          <input type="text" class="input is-rounded" name="modelo" id="modelo-carro-edit"
                             value="{{ carro.modelo }}">
                         </div>
-                        <div class="mb-3">
-                          <label for="Ano" class="col-form-label">Ano:</label>
-                          <input type="number" class="form-control" name="ano" id="ano-carro-edit"
+                      </div>
+                      <div class="field">
+                        <label for="Ano" class="label">Ano:</label>
+                        <div class="control">
+                          <input type="number" class="input is-rounded" name="ano" id="ano-carro-edit"
                             value="{{ carro.ano }}">
                         </div>
-                        <div class="mb-3">
-                          <label for="Km" class="col-form-label">Km:</label>
-                          <input type="number" class="form-control" name="km" id="km-carro-edit" value="{{ carro.km }}">
+                      </div>
+                      <div class="field">
+                        <label for="Km" class="label">Km:</label>
+                        <div class="control">
+                          <input type="number" class="input is-rounded" name="km" id="km-carro-edit"
+                            value="{{ carro.km }}">
                         </div>
-                      </form>
-
-                    </div>
-                    <div class="modal-footer">
-                      <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                      <button type="submit" class="button is-info atualizar-carro-btn"
-                        data-id="{{ carro.id_veiculo }}">Atualizar
-                        Carro</button>
-                    </div>
-                  </div>
+                      </div>
+                    </form>
+                  </section>
+                  <footer class="modal-card-foot">
+                    <button type="button" class="button is-rounded is-light" data-bs-dismiss="modal"
+                      style="color: black;box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );">Cancelar</button>
+                    <button type="submit" class="button is-warning is-rounded atualizar-carro-btn" style="color: black;"
+                      data-id="{{ carro.id_veiculo }}">Atualizar
+                      Carro</button>
+                  </footer>
                 </div>
               </div>
               <!-- Botão de exclusão -->
-              <button class="button is-danger is-rounded is-small delete-carro-btn" data-id="{{ carro.id_veiculo }}">
-                  <img src="/static/icons/icon-x-branco.png" width="13" height="4"> &nbsp;
-                 Excluir</button>
+              <button class="js-modal-trigger button is-danger is-rounded is-small excluir-carro-btn"
+                data-id="{{ carro.id_veiculo }}" data-target="confirmDeleteModal">
+                <img src="/static/icons/icon-x-branco.png" width="13" height="4"> &nbsp;
+                Excluir</button>
             </td>
           </tr>
           {% endfor %}
@@ -188,14 +206,27 @@
 
   </div>
 
-  <div>
-    <!-- icone alerta ?-->
-    <!-- <h2>Alertas</h2>
-        <hr> -->
-    <!-- fazer lista de alertas de manutenção
+  <div class="box container is-widescreen">
+    <div class="columns">
+      <div class="column">
+      </div>
+
+      <div class="column is-two-thirds">
+        <!-- icone carro ? -->
+        <h2 class="title is-4"><img src="static/images/car2.png" width="28" height="7"
+            style="vertical-align: middle">&nbsp;Alertas</h2>
+      </div>
+      <div class="column">
+      </div>
+      <hr />
+      <div class="container is-offset-one-quarter">
+        <!-- fazer lista de alertas de manutenção
                 {for alerta in alertas}
                 {endfor} 
         -->
+      </div>
+    </div>
+
   </div>
   <div>
     <!-- icone config ?-->
@@ -203,22 +234,27 @@
             <hr> -->
     <!-- fazer menu de configuracoes -->
   </div>
-  <!-- Modal de Confirmação -->
-  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel"
+  <!-- Modal de Confirmação Delete -->
+  <div class="modal" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmação de Exclusão</h5>
-        </div>
+    <div class="modal-background"></div>
+    <div class="modal-card" role="document">
+      <header class="modal-card-head">
+        <p class="modal-card-title" id="confirmDeleteModalLabel">Confirmação de Exclusão</p>
+        <button type="button" class="delete btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </header>
+      <section class="modal-card-body">
         <div class="modal-body">
           Tem certeza de que deseja excluir este veículo?
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
-          <button type="button" class="btn btn-primary" id="confirmDeleteBtn">Confirmar</button>
-        </div>
-      </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button type="button" class="button is-rounded is-light" data-bs-dismiss="modal"
+          style="color: black;box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );">Cancelar</button>
+        <button type="button" class="button is-danger is-rounded delete-carro-btn" style="color: black;"
+          data-id="">Confirmar</button>
+      </footer>
+
     </div>
   </div>
   <!-- Alerta do Bootstrap -->
@@ -228,6 +264,9 @@
   // Função para incluir novo item
   function enviarFormulario() {
     var formulario = document.getElementById((id = "carroForm"));
+    //funcao para conferir formulario
+    // se erro abortar envio
+
     var formData = new FormData(formulario);
     var objeto = {};
     formData.forEach(function (value, key) {
@@ -255,27 +294,28 @@
       });
   }
 
-  // Função para exibir a modal de confirmação
-  function showConfirmDeleteModal(id) {
-    $('#confirmDeleteModal').modal('show');
-
-    // Remove todos os event listeners anteriores do botão de confirmar exclusão
-    $('#confirmDeleteBtn').off('click');
-
-    // Adiciona um novo event listener para o botão de confirmar exclusão
-    $('#confirmDeleteBtn').on('click', function () {
-      deleteCarro(id);
-      $('#confirmDeleteModal').modal('hide'); // Fecha a modal
+  // Adiciona evento de clique nos botões de exclusão
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.excluir-carro-btn').forEach(item => {
+      item.addEventListener('click', function (event) {
+        const id_veiculo = this.getAttribute('data-id');
+        // showConfirmDeleteModal(id_veiculo);
+        const botao = document.querySelector('.delete-carro-btn');
+        botao.setAttribute('data-id', id_veiculo);
+       
+      });
     });
+  });
 
-    // Remove todos os event listeners anteriores do botão de cancelar
-    $('#cancelDeleteBtn').off('click');
-
-    // Adiciona um novo event listener para o botão de cancelar
-    $('#cancelDeleteBtn').on('click', function () {
-      $('#confirmDeleteModal').modal('hide'); // Fecha a modal
+  // Adiciona evento de clique no botão de delete do veiculo (modal)
+  document.addEventListener("DOMContentLoaded", function () {
+    document.querySelectorAll('.delete-carro-btn').forEach(item => {
+      item.addEventListener('click', function (event) {
+        const id_veiculo = this.getAttribute('data-id');
+         deleteCarro(id_veiculo);
+      });
     });
-  }
+  });
 
   // Função para enviar a solicitação de exclusão
   function deleteCarro(id) {
@@ -297,17 +337,6 @@
         alert(error.message);
       });
   }
-
-  // Adiciona evento de clique nos botões de exclusão
-  document.addEventListener("DOMContentLoaded", function () {
-    document.querySelectorAll('.delete-carro-btn').forEach(item => {
-      item.addEventListener('click', function (event) {
-        const id_veiculo = this.getAttribute('data-id');
-        showConfirmDeleteModal(id_veiculo);
-      });
-    });
-  });
-
 
   // Adiciona evento de atualizar value dos inputs
   document.addEventListener("DOMContentLoaded", function () {
