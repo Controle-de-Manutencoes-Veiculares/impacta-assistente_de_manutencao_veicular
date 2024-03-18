@@ -43,37 +43,37 @@
             <div class="field">
               <label for="cor" class="label">Cor:</label>
               <div class="control">
-                <input type="text" class="input is-rounded" name="cor" id="cor-carro" placeholder="Azul">
+                <input type="text" class="input is-rounded" name="cor" id="cor-carro" placeholder="Azul" required>
               </div>
             </div>
             <div class="field">
               <label for="placa" class="label">Placa:</label>
               <div class="control">
-                <input type="text" class="input is-rounded" name="placa" id="placa-carro" placeholder="XYZ-1234">
+                <input type="text" class="input is-rounded" name="placa" id="placa-carro" placeholder="XYZ-1234" required>
               </div>
             </div>
             <div class="field">
               <label for="Marca" class="label">Marca:</label>
               <div class="control">
-                <input type="text" class="input is-rounded" name="marca" id="marca-carro" placeholder="VW, Ford...">
+                <input type="text" class="input is-rounded" name="marca" id="marca-carro" placeholder="VW, Ford..." required>
               </div>
             </div>
             <div class="field">
               <label for="Modelo" class="label">Modelo:</label>
               <div class="control">
-                <input type="text" class="input is-rounded" name="modelo" id="modelo-carro" placeholder="Gol...">
+                <input type="text" class="input is-rounded" name="modelo" id="modelo-carro" placeholder="Gol..." required>
               </div>
             </div>
             <div class="field">
               <label for="Ano" class="label">Ano:</label>
               <div class="control">
-                <input type="number" class="input is-rounded" name="ano" id="ano-carro" placeholder="1991">
+                <input type="number" class="input is-rounded" name="ano" id="ano-carro" placeholder="1991" required>
               </div>
             </div>
             <div class="field">
               <label for="Km" class="label">Km:</label>
               <div class="control">
-                <input type="number" class="input is-rounded" name="km" id="km-carro" placeholder="316.000">
+                <input type="number" class="input is-rounded" name="km" id="km-carro" placeholder="316.000" required>
               </div>
             </div>
           </form>
@@ -92,13 +92,13 @@
       <table class="table container is-offset-one-quarter">
         <thead id="thead-style">
           <tr>
-            <th scope="col">Placa</th>
-            <th scope="col">Cor</th>
-            <th scope="col">Marca</th>
-            <th scope="col">Modelo</th>
-            <th scope="col">Ano</th>
-            <th scope="col">KM</th>
-            <th scope="col">Ações</th> <!-- Coluna para botões de ação -->
+            <th style="border:0" scope="col">Placa</th>
+            <th style="border:0" scope="col">Cor</th>
+            <th style="border:0" scope="col">Marca</th>
+            <th style="border:0" scope="col">Modelo</th>
+            <th style="border:0" scope="col">Ano</th>
+            <th style="border:0" scope="col">KM</th>
+            <th style="border:0" scope="col">Ações</th> <!-- Coluna para botões de ação -->
           </tr>
         </thead>
         <tbody>
@@ -177,7 +177,7 @@
               </div>
               <!-- Botão de exclusão -->
               <button class="button is-danger is-rounded is-small delete-carro-btn" data-id="{{ carro.id_veiculo }}">
-                  <img src="/static/icons/icon-x-branco.png" width="13" height="4"> &nbsp;
+                  <img src="/static/icons/icon-x-branco.png" width="13" height="4">&nbsp;
                  Excluir</button>
             </td>
           </tr>
