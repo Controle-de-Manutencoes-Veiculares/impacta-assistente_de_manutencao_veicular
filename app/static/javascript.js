@@ -207,3 +207,40 @@
       }
     });
   });
+
+// Função que validade os campos dos formulários de adicionar e editar o carro
+function validatecar() {
+
+  const corinput = document.querySelector("#cor-carro");
+  const placainput = document.querySelector("#placa-carro");
+  const marcainput = document.querySelector("#marca-carro");
+  const modeloinput = document.querySelector("#modelo-carro");
+  const anoinput = document.querySelector("#ano-carro");
+  const kminput = document.querySelector("#km-carro");
+  const submitbutton = document.querySelector("#submit-button");
+  const errorMessage = document.querySelector(".msg");
+
+  submitbutton.addEventListener("click", (e) => {
+    e.preventDefault();
+
+    const corvalue = corinput.value;
+    const placavalue = placainput.value;
+    const marcavalue= marcainput.value;
+    const modelovalue = modeloinput.value;
+    const anovalue = anoinput.value;
+    const kmvalue = kminput.value;
+
+    if (corvalue === "" || placavalue === ""|| marcavalue === ""
+    || modelovalue === ""|| anovalue === ""|| kmvalue === "") {
+        errorMessage.textContent = "Por favor, preencha todos os campos!";
+        errorMessage.classList = "error";
+        
+        setTimeout(() => {
+            errorMessage.textContent = "";
+            errorMessage.classList = "";
+        }, 3000);        
+        return;        
+    }
+  });
+
+}

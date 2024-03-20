@@ -32,6 +32,7 @@
       <div class="modal-card">
         <header class="modal-card-head">
           <p class="modal-card-title" id="labeladdcar">Novo Carro</p>
+          <p class="msg"></p>
           <button type="button" class="delete btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </header>
         <section class="modal-card-body">
@@ -84,7 +85,7 @@
         <footer class="modal-card-foot">
           <button type="button" class="button is-rounded is-light" data-bs-dismiss="modal"
             style="color: black;box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );">Cancelar</button>
-          <button type="submit" class="button is-warning is-rounded" onclick="enviarFormulario()" style="color: black;">
+          <button type="submit" class="button is-warning is-rounded" class="submit" id="submit-button" onclick="enviarFormulario()" style="color: black;">
             <strong>Adicionar Carro</strong></button>
         </footer>
       </div>
