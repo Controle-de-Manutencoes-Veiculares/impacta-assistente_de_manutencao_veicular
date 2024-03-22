@@ -1,164 +1,233 @@
 {% extends 'layouts/layout.html' %}
 {% block title %} Principal{% endblock %}
 {% block content %}
-<h1 class="titulo">Área do Cliente</h1>
+<div class=" container is-widescreen has-text-centered"> <br> <!--QUEBRA DE LINHA DO TÍTULO-->
+  <h1 class="title is-3 has-text-weight-bold">Bem-Vindo a Área do Cliente</h1>
+</div>
 
-<section>
-  <div>
-    <!-- icone carro ? -->
-    <h2>Meus Carros</h2>
-    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#modalAddCar">
-      Adicionar Carro
-    </button>
+<section class="section">
+  <div class="box container is-widescreen">
+    <div class="columns">
+      <div class="column">
+      </div>
+
+      <div class="column is-two-thirds">
+        <!-- icone carro ? -->
+        <h2 class="title is-4"><img src="static/images/car2.png" width="28" height="7"
+            style="vertical-align: middle">&nbsp;Meus Carros</h2>
+      </div>
+      <div class="column">
+        <button type="button" class="js-modal-trigger button is-rounded is-info" data-target="modalAddCar"
+          data-bs-toggle="modal" data-bs-target="#modalAddCar" id="button-add-carro"><img src="/static/images/add.png"
+            width="20" height="7">
+          &nbsp;&nbsp;<strong>Adicionar Carro</strong>
+        </button>
+      </div>
+    </div>
 
     <!-- modal Add Car -->
-    <div class="modal fade" id="modalAddCar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal" id="modalAddCar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <!-- Conteúdo da modal aqui -->
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="labeladdcar">Novo Carro</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <form id="carroForm">
-              <div class="mb-3">
-                <label for="id_usuario" class="col-form-label">id_usuario:</label>
-                <input type="text" class="form-control" name="id_usuario" id="id_usuario-carro" placeholder="3">
+      <div class="modal-background"></div>
+      <div class="modal-card">
+        <header class="modal-card-head">
+          <p class="modal-card-title" id="labeladdcar">Novo Carro</p>
+          <p class="msg"></p>
+          <button type="button" class="delete btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </header>
+        <section class="modal-card-body">
+          <form id="carroForm">
+            <div class="field" hidden>
+              <label for="id_usuario" class="label">id_usuario:</label>
+              <div class="control">
+                <input type="text" class="input is-rounded" name="id_usuario-carro" id="id_usuario-carro"
+                  placeholder="3" value="1" disabled>
               </div>
-              <div class="mb-3">
-                <label for="cor" class="col-form-label">Cor:</label>
-                <input type="text" class="form-control" name="cor" id="cor-carro" placeholder="Azul">
+            </div>
+            <div class="field">
+              <label for="cor" class="label">Cor:</label>
+              <div class="control">
+                <input type="text" class="input is-rounded" name="cor" id="cor-carro" placeholder="Azul" required>
               </div>
-              <div class="mb-3">
-                <label for="placa" class="col-form-label">Placa:</label>
-                <input type="text" class="form-control" name="placa" id="placa-carro" placeholder="XYZ-1234">
+            </div>
+            <div class="field">
+              <label for="placa" class="label">Placa:</label>
+              <div class="control">
+                <input type="text" class="input is-rounded" name="placa" id="placa-carro" placeholder="XYZ-1234" required>
               </div>
-              <div class="mb-3">
-                <label for="Marca" class="col-form-label">Marca:</label>
-                <input type="text" class="form-control" name="marca" id="marca-carro" placeholder="VW, Ford...">
+            </div>
+            <div class="field">
+              <label for="Marca" class="label">Marca:</label>
+              <div class="control">
+                <input type="text" class="input is-rounded" name="marca" id="marca-carro" placeholder="VW, Ford..." required>
               </div>
-              <div class="mb-3">
-                <label for="Modelo" class="col-form-label">Modelo:</label>
-                <input type="text" class="form-control" name="modelo" id="modelo-carro" placeholder="Gol...">
+            </div>
+            <div class="field">
+              <label for="Modelo" class="label">Modelo:</label>
+              <div class="control">
+                <input type="text" class="input is-rounded" name="modelo" id="modelo-carro" placeholder="Gol..." required>
               </div>
-              <div class="mb-3">
-                <label for="Ano" class="col-form-label">Ano:</label>
-                <input type="number" class="form-control" name="ano" id="ano-carro" placeholder="1991">
+            </div>
+            <div class="field">
+              <label for="Ano" class="label">Ano:</label>
+              <div class="control">
+                <input type="number" class="input is-rounded" name="ano" id="ano-carro" placeholder="1991" required>
               </div>
-              <div class="mb-3">
-                <label for="Km" class="col-form-label">Km:</label>
-                <input type="number" class="form-control" name="km" id="km-carro" placeholder="316.000">
+            </div>
+            <div class="field">
+              <label for="Km" class="label">Km:</label>
+              <div class="control">
+                <input type="number" class="input is-rounded" name="km" id="km-carro" placeholder="316.000" required>
               </div>
-            </form>
-
-          </div>
-          <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-            <button type="submit" class="btn btn-primary" onclick="salvarVeiculo()">Adicionar
-              Carro</button>
-          </div>
-        </div>
+            </div>
+          </form>
+        </section>
+        <footer class="modal-card-foot">
+          <button type="button" class="button is-rounded is-light" data-bs-dismiss="modal"
+            style="color: black;box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );">Cancelar</button>
+          <button type="submit" class="button is-warning is-rounded" class="submit" id="submit-button" onclick="enviarFormulario()" style="color: black;">
+            <strong>Adicionar Carro</strong></button>
+        </footer>
       </div>
     </div>
 
     <hr />
-    <table class="table table-striped">
-      <thead>
-        <tr>
-          <th scope="col">Placa</th>
-          <th scope="col">Cor</th>
-          <th scope="col">Marca</th>
-          <th scope="col">Modelo</th>
-          <th scope="col">Ano</th>
-          <th scope="col">KM</th>
-          <th scope="col">Ações</th> <!-- Coluna para botões de ação -->
-        </tr>
-      </thead>
-      <tbody>
-        {% for carro in veiculos %}
-        <tr>
-          <td>{{ carro["placa"] }}</td>
-          <td>{{ carro["cor"] }}</td>
-          <td>{{ carro["marca"] }}</td>
-          <td>{{ carro["modelo"] }}</td>
-          <td>{{ carro["ano"] }}</td>
-          <td>{{ carro["km"] }}</td>
-          <td>
-            <!-- Botão de edição -->
-            <button class="btn btn-primary edit-carro-btn" data-id="{{ carro.id_veiculo }}" data-bs-toggle="modal"
-              data-bs-target="#modalEditCar">Editar</button>
-            <!-- modal Edit Car -->
-            <div class="modal fade" id="modalEditCar" tabindex="-1" aria-labelledby="exampleModalLabel"
-              aria-hidden="true">
-              <!-- Conteúdo da modal aqui -->
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="labeladdcar">Editar Carro</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
+    <div class="container is-offset-one-quarter">
+
+      <table class="table is-hoverable  container is-offset-one-quarter">
+        <thead id="thead-style">
+          <tr>
+            <th style="border:0" scope="col">Placa</th>
+            <th style="border:0" scope="col">Cor</th>
+            <th style="border:0" scope="col">Marca</th>
+            <th style="border:0" scope="col">Modelo</th>
+            <th style="border:0" scope="col">Ano</th>
+            <th style="border:0" scope="col">KM</th>
+            <th style="border:0" scope="col">Ações</th> <!-- Coluna para botões de ação -->
+          </tr>
+        </thead>
+        <tbody>
+          {% for carro in veiculos %}
+          <tr>
+            <td>{{ carro["placa"] }}</td>
+            <td>{{ carro["cor"] }}</td>
+            <td>{{ carro["marca"] }}</td>
+            <td>{{ carro["modelo"] }}</td>
+            <td>{{ carro["ano"] }}</td>
+            <td>{{ carro["km"] }}</td>
+            <td>
+              <!-- Botão de edição -->
+              <button class="js-modal-trigger button is-rounded is-info is-small edit-carro-btn"
+                data-target="modalEditCar" data-id="{{ carro.id_veiculo }}" data-bs-toggle="modal"
+                data-bs-target="#modalEditCar">
+                <img src="/static/icons/icon-editar-branco.png" width="17" height="6"> &nbsp;
+                Editar </button>
+              <!-- modal Edit Car -->
+              <div class="modal" id="modalEditCar" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <!-- Conteúdo da modal aqui -->
+                <div class="modal-background"></div>
+                <div class="modal-card">
+                  <header class="modal-card-head">
+                    <p class="modal-card-title" id="labeladdcar">Editar Carro</p>
+                    <button type="button" class="delete btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </header>
+                  <section class="modal-card-body">
                     <form id="carroFormEdit">
-                      <!-- {{ method('PUT') }} -->
-                      <div class="mb-3">
-                        <label for="id_usuario" class="col-form-label">id_usuario:</label>
-                        <input type="text" class="form-control" name="id_usuario-carro" id="id_usuario-carro-edit"
-                          value="{{ carro.id_veiculo }}"  readonly>
+                      <div class="field" hidden>
+                        <label for="id_usuario" class="label">id_usuario:</label>
+                        <div class="control">
+                          <input type="text" class="input  is-rounded" name="id_usuario-carro"
+                            id="id_cliente-carro-edit" value="{{ carro.id_veiculo }}" readonly>
+                        </div>
                       </div>
-                      <div class="mb-3">
-                        <label for="cor" class="col-form-label">Cor:</label>
-                        <input type="text" class="form-control" name="cor" id="cor-carro-edit" value="{{ carro.cor }}">
+                      <div class="field">
+                        <label for="cor" class="label">Cor:</label>
+                        <div class="control">
+                          <input type="text" class="input is-rounded" name="cor" id="cor-carro-edit"
+                            value="{{ carro.cor }}">
+                        </div>
                       </div>
-                      <div class="mb-3">
-                        <label for="placa" class="col-form-label">Placa:</label>
-                        <input type="text" class="form-control" name="placa" id="placa-carro-edit" value="{{ carro.placa }}">
+                      <div class="field">
+                        <label for="placa" class="label">Placa:</label>
+                        <div class="control">
+                          <input type="text" class="input is-rounded" name="placa" id="placa-carro-edit"
+                            value="{{ carro.placa }}">
+                        </div>
                       </div>
-                      <div class="mb-3">
-                        <label for="Marca" class="col-form-label">Marca:</label>
-                        <input type="text" class="form-control" name="marca" id="marca-carro-edit" value="{{ carro.marca }}">
+                      <div class="field">
+                        <label for="Marca" class="label">Marca:</label>
+                        <div class="control">
+                          <input type="text" class="input is-rounded" name="marca" id="marca-carro-edit"
+                            value="{{ carro.marca }}">
+                        </div>
                       </div>
-                      <div class="mb-3">
-                        <label for="Modelo" class="col-form-label">Modelo:</label>
-                        <input type="text" class="form-control" name="modelo" id="modelo-carro-edit"
-                          value="{{ carro.modelo }}">
+                      <div class="field">
+                        <label for="Modelo" class="label">Modelo:</label>
+                        <div class="control">
+                          <input type="text" class="input is-rounded" name="modelo" id="modelo-carro-edit"
+                            value="{{ carro.modelo }}">
+                        </div>
                       </div>
-                      <div class="mb-3">
-                        <label for="Ano" class="col-form-label">Ano:</label>
-                        <input type="number" class="form-control" name="ano" id="ano-carro-edit" value="{{ carro.ano }}">
+                      <div class="field">
+                        <label for="Ano" class="label">Ano:</label>
+                        <div class="control">
+                          <input type="number" class="input is-rounded" name="ano" id="ano-carro-edit"
+                            value="{{ carro.ano }}">
+                        </div>
                       </div>
-                      <div class="mb-3">
-                        <label for="Km" class="col-form-label">Km:</label>
-                        <input type="number" class="form-control" name="km" id="km-carro-edit" value="{{ carro.km }}">
+                      <div class="field">
+                        <label for="Km" class="label">Km:</label>
+                        <div class="control">
+                          <input type="number" class="input is-rounded" name="km" id="km-carro-edit"
+                            value="{{ carro.km }}">
+                        </div>
                       </div>
                     </form>
-
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
-                    <button type="submit" class="btn btn-primary atualizar-carro-btn" data-id="{{ carro.id_veiculo }}">Atualizar
+                  </section>
+                  <footer class="modal-card-foot">
+                    <button type="button" class="button is-rounded is-light" data-bs-dismiss="modal"
+                      style="color: black;box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );">Cancelar</button>
+                    <button type="submit" class="button is-warning is-rounded atualizar-carro-btn" style="color: black;"
+                      data-id="{{ carro.id_veiculo }}">Atualizar
                       Carro</button>
-                  </div>
+                  </footer>
                 </div>
               </div>
-            </div>
-            <!-- Botão de exclusão -->
-            <button class="btn btn-danger delete-carro-btn" data-id="{{ carro.id_veiculo }}">Excluir</button>
-          </td>
-        </tr>
-        {% endfor %}
-      </tbody>
-    </table>
+              <!-- Botão de exclusão -->
+              <button class="js-modal-trigger button is-danger is-rounded is-small excluir-carro-btn"
+                data-id="{{ carro.id_veiculo }}" data-target="confirmDeleteModal">
+                <img src="/static/icons/icon-x-branco.png" width="13" height="4"> &nbsp;
+                Excluir</button>
+            </td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+
   </div>
 
-  <div>
-    <!-- icone alerta ?-->
-    <!-- <h2>Alertas</h2>
-        <hr> -->
-    <!-- fazer lista de alertas de manutenção
+  <div class="box container is-widescreen">
+    <div class="columns">
+      <div class="column">
+      </div>
+
+      <div class="column is-two-thirds">
+        <!-- icone carro ? -->
+        <h2 class="title is-4"><img src="static/images/car2.png" width="28" height="7"
+            style="vertical-align: middle">&nbsp;Alertas</h2>
+      </div>
+      <div class="column">
+      </div>
+      <hr />
+      <div class="container is-offset-one-quarter">
+        <!-- fazer lista de alertas de manutenção
                 {for alerta in alertas}
                 {endfor} 
         -->
+      </div>
+    </div>
+
   </div>
   <div>
     <!-- icone config ?-->
@@ -166,156 +235,30 @@
             <hr> -->
     <!-- fazer menu de configuracoes -->
   </div>
-  <!-- Modal de Confirmação -->
-  <div class="modal fade" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel"
+  <!-- Modal de Confirmação Delete -->
+  <div class="modal" id="confirmDeleteModal" tabindex="-1" role="dialog" aria-labelledby="confirmDeleteModalLabel"
     aria-hidden="true">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="confirmDeleteModalLabel">Confirmação de Exclusão</h5>
-        </div>
+    <div class="modal-background"></div>
+    <div class="modal-card" role="document">
+      <header class="modal-card-head">
+        <p class="modal-card-title" id="confirmDeleteModalLabel">Confirmação de Exclusão</p>
+        <button type="button" class="delete btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </header>
+      <section class="modal-card-body">
         <div class="modal-body">
           Tem certeza de que deseja excluir este veículo?
         </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" aria-label="Close">Cancelar</button>
-          <button type="button" class="btn btn-primary" id="confirmDeleteBtn">Confirmar</button>
-        </div>
-      </div>
+      </section>
+      <footer class="modal-card-foot">
+        <button type="button" class="button is-rounded is-light" data-bs-dismiss="modal"
+          style="color: black;box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );">Cancelar</button>
+        <button type="button" class="button is-danger is-rounded delete-carro-btn" style="color: black;"
+          data-id="">Confirmar</button>
+      </footer>
+
     </div>
   </div>
-  <!-- Alerta do Bootstrap -->
-</section>
-
-<script>
-  document.addEventListener("DOMContentLoaded", function() {
-    const buttons = document.querySelectorAll('section button');
-    buttons.forEach(function(button) {
-      button.addEventListener('click', function(event) {
-        const buttonClass = event.target.classList;
-        const id_veiculo = this.getAttribute('data-id');
-
-        // Verifica se o botão clicado é um botão de exclusão e abre modal de confirmação passando o id_veiculo como atributo
-        if (buttonClass.contains('delete-carro-btn')) {
-          exibeModalConfirmarExclusão(id_veiculo);
-        };
-
-        // Verifica se o botão clicado é um botão de edição e abre modal com os inputs preenchidos
-        if (buttonClass.contains('edit-carro-btn')) {
-          const botao = document.querySelector('.atualizar-carro-btn');
-          botao.setAttribute('data-id', id_veiculo);
-          insereValoresModalAtualizazao(id_veiculo)        
-        };
-
-        // Verifica se o botão clicado é um botão de atualizar veiculo
-        if (buttonClass.contains('atualizar-carro-btn')) {
-          atualizarVeiculo(id_veiculo)         
-        };
-      });
-    });
-  });
-  
-
-  function enviarDadosVeiculo(url, method, formData, successMessage, errorMessage) {
-    fetch(url, {
-      method: method,
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(formData)
-    })
-    .then(response => {
-      if (response.ok) {
-        alert(successMessage);
-        location.reload(); // Atualiza a página
-      } else {
-        throw new Error(errorMessage);
-      }
-    })
-    .catch(error => {
-      alert(error.message);
-    });
-  }
-  
-  function salvarVeiculo() {
-    const formData = new FormData(document.getElementById("carroForm"));
-    let data = {};    
-    formData.forEach(function (value, key) {
-      data[key] = value;
-    });
-    const url = '/veiculo';
-    const method = 'POST';
-    const successMessage = 'Veículo adicionado com sucesso';
-    const errorMessage = 'Ocorreu um erro ao incluir o veículo';
-    
-    enviarDadosVeiculo(url, method, data, successMessage, errorMessage);
-  }
-  
-  function atualizarVeiculo(id_veiculo) {
-    const formData = new FormData(document.getElementById("carroFormEdit"));  
-    let data = {};    
-    formData.forEach(function (value, key) {
-      data[key] = value;
-    });
-    const url = `/veiculo/${id_veiculo}`;
-    const method = 'PUT';
-    const successMessage = 'Veículo editado com sucesso';
-    const errorMessage = 'Ocorreu um erro ao editar o veículo';
-  
-    enviarDadosVeiculo(url, method, data, successMessage, errorMessage);
-  }
-
-  function deletarVeiculo(id) {
-    const url = `/veiculo/${id}`;
-    const method = 'DELETE';
-    const formData = {}; // Não há dados para enviar no caso da exclusão
-    const successMessage = 'Veículo removido com sucesso';
-    const errorMessage = 'Ocorreu um erro ao excluir o veículo';
-    
-    enviarDadosVeiculo(url, method, formData, successMessage, errorMessage);
-  }
-
-  // Função para exibir a modal de confirmação
-  function exibeModalConfirmarExclusão(id) {
-    const confirmDeleteModal = $('#confirmDeleteModal');
-    const confirmDeleteBtn = $('#confirmDeleteBtn');
-    const cancelDeleteBtn = $('#cancelDeleteBtn');
-
-    // Mostra o modal de confirmação
-    confirmDeleteModal.modal('show');
-
-    // Adiciona um event listener para o botão de confirmar exclusão
-    confirmDeleteBtn.off('click').on('click', function () {
-        deletarVeiculo(id);
-        confirmDeleteModal.modal('hide'); // Fecha o modal
-    });
-
-    // Adiciona um event listener para o botão de cancelar
-    cancelDeleteBtn.off('click').on('click', function () {
-        confirmDeleteModal.modal('hide'); // Fecha o modal
-    });
-}
-  
-  // Busca por veículo e atualiza valores dos inputs no modal
-  function insereValoresModalAtualizazao(id_veiculo) {
-    fetch(`/veiculo/${id_veiculo}`)
-      .then(response => {
-        if (!response.ok) throw new Error('Falha ao obter os dados do carro');
-        return response.json(); 
-      })
-      .then(data => {
-        console.log(data.content);
-        const carroData = data.content;
-        // Define os valores dos campos de entrada correspondentes
-        Object.entries(carroData).forEach(([key, value]) => {
-          const inputField = document.getElementById(`${key}-carro-edit`);
-          if (inputField) inputField.value = value;
-        });
-      })
-      .catch(error => alert(error.message));
-  }
-
  
-
-</script>
+</section>
+<script type="text/javascript" src="/static/javascript.js"></script>
 {% endblock %}
