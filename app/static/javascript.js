@@ -9,7 +9,7 @@ function enviarFormulario() {
   var objeto = {};
   formData.forEach(function (value, key) {
     objeto[key] = value
-    validateForm(value) //valida se o campo esta vazio ou null
+    // validateForm(value) //valida se o campo esta vazio ou null
   });
   var json = JSON.stringify(objeto);
   // Agora você pode enviar o JSON usando fetch() ou outra biblioteca de sua escolha
@@ -141,7 +141,7 @@ function updateCarro(id_veiculo) {
 
   formData.forEach(function (value, key) {
     objeto[key] = value;
-    validateForm(value)
+    // validateForm(value)
   });
    //valida se o campo esta vazio ou null
   var json = JSON.stringify(objeto);
