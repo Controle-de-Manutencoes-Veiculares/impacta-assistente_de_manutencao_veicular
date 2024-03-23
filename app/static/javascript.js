@@ -1,37 +1,52 @@
-
 // Função para incluir novo item
 function enviarFormulario() {
-  var formulario = document.getElementById((id = "carroForm"));
-  //funcao para conferir formulario
-  // se erro abortar envio
-
+  var formulario = document.getElementById("carroForm");
   var formData = new FormData(formulario);
   var objeto = {};
+  var camposInvalidos = [];
+
   formData.forEach(function (value, key) {
-    objeto[key] = value
-    // validateForm(value) //valida se o campo esta vazio ou null
+    objeto[key] = value;
+    let input = document.querySelector(`#${key}-carro`); 
+    if (!validateForm(value)) {
+      camposInvalidos.push(key);
+      input.classList.add("is-danger");
+    } else {
+      input.classList.remove("is-danger"); 
+    }
   });
-  var json = JSON.stringify(objeto);
-  // Agora você pode enviar o JSON usando fetch() ou outra biblioteca de sua escolha
-  fetch("/veiculo", {
-    method: "POST",
-    headers: {
-      "Content-Type": "application/json",
-    },
-    body: json,
-  })
-    .then(response => {
-      if (response.ok) {
-        alert('Veículo adicionado com sucesso');
-        location.reload(); // Atualiza a página
-      } else {
-        throw new Error('Ocorreu um erro ao incluir o veículo');
-      }
+
+  if (camposInvalidos.length == 0) {
+    var json = JSON.stringify(objeto);
+    // Agora você pode enviar o JSON usando fetch() ou outra biblioteca de sua escolha
+    fetch("/veiculo", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: json,
     })
-    .catch(error => {
-      alert(error.message);
-    });
+      .then(response => {
+        if (response.ok) {
+          alert('Veículo adicionado com sucesso');
+          location.reload(); // Atualiza a página
+        } else {
+          throw new Error('Ocorreu um erro ao incluir o veículo');
+        }
+      })
+      .catch(error => {
+        alert(error.message);
+      });
+  }
 }
+
+// Função para validar se o valor é vazio ou nulo
+function validateForm(value) {
+  return value !== null && value !== "";
+}
+
+
+
 
 // Adiciona evento de clique nos botões de exclusão
 document.addEventListener("DOMContentLoaded", function () {
@@ -168,6 +183,7 @@ function updateCarro(id_veiculo) {
 }
 
 // modal Bulma 
+
 document.addEventListener('DOMContentLoaded', () => {
   // Functions to open and close a modal
   function openModal($el) {
@@ -197,10 +213,12 @@ document.addEventListener('DOMContentLoaded', () => {
   // Add a click event on various child elements to close the parent modal
   (document.querySelectorAll('.modal-background, .modal-close, .modal-card-head .delete, .modal-card-foot .button') || []).forEach(($close) => {
     const $target = $close.closest('.modal');
-
-    $close.addEventListener('click', () => {
-      closeModal($target);
-    });
+  
+    if (!$close.classList.contains('js-no-close')) { // Verifica se o botão não tem a classe 'js-no-close'
+      $close.addEventListener('click', () => {
+        closeModal($target);
+      });
+    }
   });
 
   // Add a keyboard event to close all modals
@@ -211,12 +229,3 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Função que validade os campos dos formulários de adicionar e editar o carro
-function validateForm(value) {
-
-    if (value == (null || "")) {
-      alert('"Por favor, preencha todos os campos!"');
-      return false;
-  };
-
-}

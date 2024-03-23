@@ -47,37 +47,37 @@
             <div class="field">
               <label for="cor" class="label">Cor:</label>
               <div class="control">
-                <input type="text" class="input is-rounded" name="cor" id="cor-carro" placeholder="Azul" required>
+                <input type="text" class="input is-rounded" name="cor" id="cor-carro" placeholder="Azul" title="Adicione a cor do seu carro" required>
               </div>
             </div>
             <div class="field">
               <label for="placa" class="label">Placa:</label>
               <div class="control">
-                <input type="text" class="input is-rounded" name="placa" id="placa-carro" placeholder="XYZ-1234" required>
+                <input type="text" class="input is-rounded" name="placa" id="placa-carro" placeholder="XYZ-1234" title="Adicione a placa do seu carro" required>
               </div>
             </div>
             <div class="field">
               <label for="Marca" class="label">Marca:</label>
               <div class="control">
-                <input type="text" class="input is-rounded" name="marca" id="marca-carro" placeholder="VW, Ford..." required>
+                <input type="text" class="input is-rounded" name="marca" id="marca-carro" placeholder="VW, Ford..." title="Adicione a marca do seu carro" required>
               </div>
             </div>
             <div class="field">
               <label for="Modelo" class="label">Modelo:</label>
               <div class="control">
-                <input type="text" class="input is-rounded" name="modelo" id="modelo-carro" placeholder="Gol..." required>
+                <input type="text" class="input is-rounded" name="modelo" id="modelo-carro" placeholder="Gol..." title="Adicione o modelo do seu carro" required>
               </div>
             </div>
             <div class="field">
               <label for="Ano" class="label">Ano:</label>
               <div class="control">
-                <input type="number" class="input is-rounded" name="ano" id="ano-carro" placeholder="1991" required>
+                <input type="number" class="input is-rounded" name="ano" id="ano-carro" placeholder="1991" title="Adicione ano de fabricação do seu carro" required>
               </div>
             </div>
             <div class="field">
               <label for="Km" class="label">Km:</label>
               <div class="control">
-                <input type="number" class="input is-rounded" name="km" id="km-carro" placeholder="316.000" required>
+                <input type="number" class="input is-rounded" name="km" id="km-carro" placeholder="316.000" title="Adicione a Km atual do seu carro" required>
               </div>
             </div>
           </form>
@@ -85,7 +85,7 @@
         <footer class="modal-card-foot">
           <button type="button" class="button is-rounded is-light" data-bs-dismiss="modal"
             style="color: black;box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );">Cancelar</button>
-          <button type="submit" class="button is-warning is-rounded" class="submit" id="submit-button" onclick="enviarFormulario()" style="color: black;">
+          <button type="submit" class="button is-warning is-rounded js-no-close" class="submit" id="submit-button" onclick="enviarFormulario()" style="color: black;">
             <strong>Adicionar Carro</strong></button>
         </footer>
       </div>

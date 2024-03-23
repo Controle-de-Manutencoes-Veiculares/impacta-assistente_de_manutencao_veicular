@@ -42,15 +42,15 @@
       <label for="km">KM:</label>
       <input autocomplete="off" name="km" id="km-carro" placeholder="316.000" type="number">
     </div>
-    <button class="btn btn-primary" type="button" onclick="enviarFormulario()">Add</button>
+    <button class="btn btn-primary" type="button" >Add</button>
   </div>
 </form>
 
 <!-- Alerta do Bootstrap -->
 <div id="alerta" class="alert" style="display:none;"></div>
-
+<!-- 
 <script>
-  function enviarFormulario() {
+  function enviarFormulario2() {
     var formulario = document.getElementById("carroForm");
     var formData = new FormData(formulario);
     var objeto = {};
@@ -88,6 +88,6 @@
       console.error('Erro ao adicionar veículo:', error);
     });
   }
-</script>
+</script> -->
 
 {% endblock %}
