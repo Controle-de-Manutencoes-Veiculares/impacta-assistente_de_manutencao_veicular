@@ -1,7 +1,6 @@
 from mvc_flask import Router
 
 Router.get('/', 'home#index')
-Router.get('/form-carro', 'veiculo#form_carro')
 
 # Rotas CRUD carros
 Router.get('/veiculo', 'veiculo#index')

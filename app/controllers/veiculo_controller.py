@@ -5,9 +5,6 @@ from app.controllers.home_controller import HomeController
 
 class VeiculoController:
 
-    def form_carro(self):
-        return render_template('posts/home/form_carro.html')
-
     def index(self):
         try:
             veiculos = Veiculo.query.all()
