@@ -45,9 +45,6 @@ function validateForm(value) {
   return value !== null && value !== "";
 }
 
-
-
-
 // Adiciona evento de clique nos botões de exclusão
 document.addEventListener("DOMContentLoaded", function () {
   document.querySelectorAll('.excluir-carro-btn').forEach(item => {
