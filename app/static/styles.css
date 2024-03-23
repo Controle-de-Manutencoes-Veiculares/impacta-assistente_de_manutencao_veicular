@@ -13,6 +13,7 @@ footer {
   bottom: 0px;
   width: 100%;
   color: black;
+  padding: 1rem !important;
 }
 
 #nav-style{
